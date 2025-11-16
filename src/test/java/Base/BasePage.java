@@ -3,8 +3,10 @@ package Base;
 import java.lang.reflect.Method;
 
 import org.testng.ITestResult;
-import org.testng.annotations.AfterMethod;
+import org.testng.annotations.AfterClass;
+import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.AfterMethod;
 
 import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.ExtentTest;
@@ -25,10 +27,9 @@ public class BasePage {
     protected ExtentReports reports;   
     protected ExtentTest test;
 
-    @BeforeMethod
-    public void setUp(Method method) {
-        reports = ExtentManager.getInstance();  
-        test = reports.createTest(method.getName());
+    @BeforeClass
+    public void setUpClass() {
+        reports = ExtentManager.getInstance();
 
         playwright = Playwright.create();
         browser = playwright.chromium()
@@ -36,10 +37,15 @@ public class BasePage {
         page = browser.newPage();
         page.navigate("https://daweb-demo.gcp.digivalitsolutions.com/login");
         page.setDefaultTimeout(40000);
-        
-        LoginPage loginPage = new LoginPage(page);
-		loginPage.login("ragulkanna1619@gmail.com", "Digival@123");
 
+        // Login once for all tests
+        LoginPage loginPage = new LoginPage(page);
+        loginPage.login("ragulkanna1619@gmail.com", "Digival@123");
+    }
+
+    @BeforeMethod
+    public void startTest(Method method) {
+        test = reports.createTest(method.getName());
     }
 
     @AfterMethod
@@ -47,24 +53,19 @@ public class BasePage {
         if (result.getStatus() == ITestResult.FAILURE) {
             test.fail(result.getThrowable());
             String screenshotPath = Screenshotutil.takeScreenshot(page, result.getName());
-            
-     
-            System.out.println("*** screenshotPath : " + screenshotPath);
-            String projectPath = System.getProperty("user.dir");
-
-            String absoluteScreenshotPath = projectPath + "/" + screenshotPath;
-            System.out.println(" *** absoluteScreenshotPath : " + absoluteScreenshotPath);
-
-            test.addScreenCaptureFromPath(absoluteScreenshotPath, "screenshot");
-
+            String absolutePath = System.getProperty("user.dir") + "/" + screenshotPath;
+            test.addScreenCaptureFromPath(absolutePath, "screenshot");
         } else if (result.getStatus() == ITestResult.SUCCESS) {
             test.pass("Passed");
         } else {
-            test.skip("Test skipped");
+            test.skip("Skipped");
         }
+        reports.flush();
+    }
 
-        reports.flush();  
-//        browser.close();
-//        playwright.close();
+    @AfterClass
+    public void tearDownClass() {
+        browser.close();
+        playwright.close();
     }
 }
