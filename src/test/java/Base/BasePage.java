@@ -21,7 +21,7 @@ import Utils.Screenshotutil;
 
 public class BasePage {
 
-    protected Playwright playwright;
+    public  Playwright playwright;
     protected Browser browser;
     protected Page page;
     protected ExtentReports reports;   
@@ -38,7 +38,6 @@ public class BasePage {
         page.navigate("https://daweb-demo.gcp.digivalitsolutions.com/login");
         page.setDefaultTimeout(40000);
 
-        // Login once for all tests
         LoginPage loginPage = new LoginPage(page);
         loginPage.login("ragulkanna1619@gmail.com", "Digival@123");
     }
@@ -64,7 +63,8 @@ public class BasePage {
     }
 
     @AfterClass
-    public void tearDownClass() {
+    public void tearDownClass() throws InterruptedException {
+    	Thread.sleep(5000);
         browser.close();
         playwright.close();
     }
