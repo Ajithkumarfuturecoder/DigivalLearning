@@ -1,6 +1,8 @@
 package Base;
 
 import java.lang.reflect.Method;
+import java.util.Arrays;
+import java.util.List;
 
 import org.testng.ITestResult;
 import org.testng.annotations.AfterClass;
@@ -11,6 +13,7 @@ import org.testng.annotations.AfterMethod;
 import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.ExtentTest;
 import com.microsoft.playwright.Browser;
+import com.microsoft.playwright.BrowserContext;
 import com.microsoft.playwright.BrowserType;
 import com.microsoft.playwright.Page;
 import com.microsoft.playwright.Playwright;
@@ -32,9 +35,9 @@ public class BasePage {
         reports = ExtentManager.getInstance();
 
         playwright = Playwright.create();
-        browser = playwright.chromium()
-                 .launch(new BrowserType.LaunchOptions().setHeadless(false).setSlowMo(1000));
-        page = browser.newPage();
+        
+        browser = playwright.chromium().launch(new BrowserType.LaunchOptions().setHeadless(false).setSlowMo(1000));
+       page = browser.newPage();
         page.navigate("https://daweb-demo.gcp.digivalitsolutions.com/login");
         page.setDefaultTimeout(40000);
 
@@ -65,7 +68,7 @@ public class BasePage {
     @AfterClass
     public void tearDownClass() throws InterruptedException {
     	Thread.sleep(5000);
-        browser.close();
+//        browser.close();
         playwright.close();
     }
 }

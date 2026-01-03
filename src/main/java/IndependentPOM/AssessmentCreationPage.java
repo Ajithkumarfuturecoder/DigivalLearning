@@ -16,14 +16,22 @@ public class AssessmentCreationPage {
 	private final String SearchCourse = "//input[contains(@type,\"search\")]";
 	private final String SelectCourse = "//div[contains(@class,\"digi-fw-500 digi-fs-16 digi-nested-label-container digi-subitem-text-clip\")]";
 	private final String CreateAssessment = "(//button[contains(@type,\"button\")])[2]";
+	private final String Clickplusicon = "(//mat-icon[contains(@class,\"mat-icon notranslate digi-action-icon material-icons mat-ligature-font mat-icon-no-color\")])[3]";
 	private final String McqQuestion = "(//div[contains(@role,\"textbox\")])[1]";
 	private final String McqQuestionchoiceone = "(//div[contains(@role,\"textbox\")])[2]";
 	private final String McqQuestionchoicetwo = "(//div[contains(@role,\"textbox\")])[3]";
 	private final String McqQuestionchoicethree = "(//div[contains(@role,\"textbox\")])[4]";
 	private final String McqQuestionchoicefour = "(//div[contains(@role,\"textbox\")])[5]";
 	private final String Mcqselectrightanswer = "//input[contains(@id,\"mat-radio-3-input\")]";
-
 	private final String mcqMedia = "(//input[@name='attachment-image-selector'])[1]";
+	private final String clickmapping = "(//div[contains(@style,\"margin-right: 8px;\")])[1]";
+	private final String clicksessiontopicformcq = ("//mat-label[contains(text(),'Subject')]/ancestor::div[contains(@class,'mat-mdc-form-field')]//mat-select");
+	private final String Selectsessiontopicformcq = "//mat-option//span[contains(text(),'Definition of the terms')]";
+	private final String clickclomappingmcq = "//mat-label[contains(text(),'CLO Mapping')]/ancestor::div[contains(@class,'mat-mdc-form-field')]//mat-select";
+	private final String selectclomappingonemcq = "//mat-option[.//span[contains(normalize-space(),'Define various medical terms')]]//mat-pseudo-checkbox";
+//	private final String overlayBackground = "div.cdk-overlay-backdrop";
+	private final String clicktaxonomy = "//mat-label[contains(text(),'Taxonomy')]/ancestor::div[contains(@class,'mat-mdc-form-field')]//mat-select";
+	private final String selecttaxonomyforfirstmcq = "(//mat-pseudo-checkbox[contains(@class,\"mat-pseudo-checkbox mat-mdc-option-pseudo-checkbox mat-pseudo-checkbox-full ng-star-inserted\")])[3]";
 
 	public AssessmentCreationPage(Page page) {
 		this.page = page;
@@ -83,6 +91,12 @@ public class AssessmentCreationPage {
 		inputField.pressSequentially(Duration);
 	}
 
+	public void Clickplusicon()
+
+	{
+		page.click(Clickplusicon);
+	}
+
 	public void McqQuestion(String mcqQuestion) {
 		page.fill(McqQuestion, mcqQuestion);
 
@@ -97,17 +111,17 @@ public class AssessmentCreationPage {
 		page.fill(McqQuestionchoicetwo, mcqQuestionchoicetwo);
 
 	}
-	
+
 	public void McqQuestionchoicethree(String mcqQuestionchoicethree) {
-		page.fill( McqQuestionchoicethree, mcqQuestionchoicethree);
+		page.fill(McqQuestionchoicethree, mcqQuestionchoicethree);
 
 	}
-	
+
 	public void McqQuestionchoicefour(String mcqQuestionchoicefour) {
-		page.fill( McqQuestionchoicefour, mcqQuestionchoicefour);
+		page.fill(McqQuestionchoicefour, mcqQuestionchoicefour);
 
 	}
-	
+
 	public void Mcqselectrightanswer() {
 		page.click(Mcqselectrightanswer);
 
@@ -115,11 +129,57 @@ public class AssessmentCreationPage {
 
 	public void McqMedia() {
 
-	    String filePath = System.getProperty("user.dir") + "/Media/Images/Drugs.png";
-	    
-	    System.out.println("Uploading file: " + filePath);
+		String filePath = System.getProperty("user.dir") + "/Media/Images/Drugs.png";
 
-	    page.locator(mcqMedia).setInputFiles(Paths.get(filePath));
+		System.out.println("Uploading file: " + filePath);
+
+		page.locator(mcqMedia).setInputFiles(Paths.get(filePath));
+	}
+
+	public void Mcqsessiontopic() {
+		page.click(clickmapping);
+
+	}
+
+	public void clicksessiontopicformcq() {
+
+		Locator topic = page.locator(clicksessiontopicformcq).first();
+
+		topic.waitFor(new Locator.WaitForOptions().setTimeout(15000));
+
+		topic.scrollIntoViewIfNeeded();
+
+		page.waitForTimeout(500);
+
+		topic.click(new Locator.ClickOptions().setTimeout(5000));
+
+	}
+
+	public void Selectsessiontopicformcq() {
+		page.click(Selectsessiontopicformcq);
+
+	}
+
+	public void clickclomappingmcq() {
+		page.click(clickclomappingmcq);
+
+	}
+
+	public void selectclomappingonemcq() {
+		page.click(selectclomappingonemcq);
+		page.keyboard().press("Escape");
+
+	}
+
+	public void clicktaxonomy() {
+		page.click(clicktaxonomy);
+
+	}
+	
+	public void selecttaxonomyforfirstmcq() {
+		page.click(selecttaxonomyforfirstmcq);
+		page.keyboard().press("Escape");
+
 	}
 
 }
