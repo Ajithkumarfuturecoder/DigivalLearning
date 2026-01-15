@@ -4,6 +4,7 @@ import java.nio.file.Paths;
 
 import com.microsoft.playwright.Locator;
 import com.microsoft.playwright.Page;
+import com.microsoft.playwright.options.WaitForSelectorState;
 
 public class AssessmentCreationPage {
 
@@ -23,15 +24,24 @@ public class AssessmentCreationPage {
 	private final String McqQuestionchoicethree = "(//div[contains(@role,\"textbox\")])[4]";
 	private final String McqQuestionchoicefour = "(//div[contains(@role,\"textbox\")])[5]";
 	private final String Mcqselectrightanswer = "//input[contains(@id,\"mat-radio-3-input\")]";
-	private final String mcqMedia = "(//input[@name='attachment-image-selector'])[1]";
+	private final String mcqoneimageMedia = "(//input[@name='attachment-image-selector'])[1]";
 	private final String clickmapping = "(//div[contains(@style,\"margin-right: 8px;\")])[1]";
 	private final String clicksessiontopicformcq = ("//mat-label[contains(text(),'Subject')]/ancestor::div[contains(@class,'mat-mdc-form-field')]//mat-select");
 	private final String Selectsessiontopicformcq = "//mat-option//span[contains(text(),'Definition of the terms')]";
 	private final String clickclomappingmcq = "//mat-label[contains(text(),'CLO Mapping')]/ancestor::div[contains(@class,'mat-mdc-form-field')]//mat-select";
 	private final String selectclomappingonemcq = "//mat-option[.//span[contains(normalize-space(),'Define various medical terms')]]//mat-pseudo-checkbox";
-//	private final String overlayBackground = "div.cdk-overlay-backdrop";
 	private final String clicktaxonomy = "//mat-label[contains(text(),'Taxonomy')]/ancestor::div[contains(@class,'mat-mdc-form-field')]//mat-select";
 	private final String selecttaxonomyforfirstmcq = "(//mat-pseudo-checkbox[contains(@class,\"mat-pseudo-checkbox mat-mdc-option-pseudo-checkbox mat-pseudo-checkbox-full ng-star-inserted\")])[3]";
+	private final String Clickplusicontwo = "(//mat-icon[contains(@class,\"mat-icon notranslate digi-action-icon material-icons mat-ligature-font mat-icon-no-color\")])[1]";
+	private final String McqQuestiontwo = "(//div[contains(@class,\"ck-blurred ck ck-content ck-editor__editable ck-rounded-corners ck-editor__editable_inline\")])[1]";
+	private final String McqQuestiontwochoiceone = "(//div[contains(@role,\"textbox\")])[2]";
+	private final String McqQuestiontwochoicetwo = "(//div[contains(@role,\"textbox\")])[3]";
+	private final String McqQuestiontwochoicethree = "(//div[contains(@role,\"textbox\")])[4]";
+	private final String McqQuestiontwochoicefour = "(//div[contains(@role,\"textbox\")])[5]";
+	private final String Mcqquestiontwoselectrightanswer = "(//input[contains(@type,\"radio\")])[3]";
+	private final String mcqTwoAudioInput = "(//input[@type='file' and contains(@accept,'audio')])[2]";
+	private final String clickmcqtwomapping = "(//div[contains(@style,\"margin-right: 8px;\")])[5]";
+	private final String clicksessiontopicformcqtwo = ("//mat-label[contains(text(),'Subject')]/ancestor::div[contains(@class,'mat-mdc-form-field')]//mat-select");
 
 	public AssessmentCreationPage(Page page) {
 		this.page = page;
@@ -127,13 +137,13 @@ public class AssessmentCreationPage {
 
 	}
 
-	public void McqMedia() {
+	public void mcqoneimageMedia() {
 
 		String filePath = System.getProperty("user.dir") + "/Media/Images/Drugs.png";
 
 		System.out.println("Uploading file: " + filePath);
 
-		page.locator(mcqMedia).setInputFiles(Paths.get(filePath));
+		page.locator(mcqoneimageMedia).setInputFiles(Paths.get(filePath));
 	}
 
 	public void Mcqsessiontopic() {
@@ -175,11 +185,82 @@ public class AssessmentCreationPage {
 		page.click(clicktaxonomy);
 
 	}
-	
+
 	public void selecttaxonomyforfirstmcq() {
 		page.click(selecttaxonomyforfirstmcq);
 		page.keyboard().press("Escape");
 
+	}
+
+	public void Clickplusicontwo()
+
+	{
+		page.click(Clickplusicontwo);
+	}
+
+	public void McqQuestiontwo(String mcqquestiontwo) {
+		page.fill(McqQuestiontwo, mcqquestiontwo);
+
+	}
+
+	public void McqQuestiontwochoiceone(String mcqquestiontwochoiceone) {
+		page.fill(McqQuestiontwochoiceone, mcqquestiontwochoiceone);
+	}
+
+	public void McqQuestiontwochoicetwo(String mcqquestiontwochoicetwo) {
+		page.fill(McqQuestiontwochoicetwo, mcqquestiontwochoicetwo);
+	}
+
+	public void McqQuestiontwochoicethree(String mcqquestiontwochoicethree) {
+		page.fill(McqQuestiontwochoicethree, mcqquestiontwochoicethree);
+	}
+
+	public void McqQuestiontwochoicefour(String mcqquestiontwochoicefour) {
+		page.fill(McqQuestiontwochoicefour, mcqquestiontwochoicefour);
+	}
+
+	public void Mcqquestiontwoselectrightanswer() {
+		page.click(Mcqquestiontwoselectrightanswer);
+	}
+
+	public void mcqtwoaudioMedia() {
+
+		String filePath = System.getProperty("user.dir") + "/Media/Audio/Audioone.wav";
+
+		System.out.println("Uploading file: " + filePath);
+
+		// Upload to hidden input
+		Locator audioInput = page.locator(mcqTwoAudioInput);
+		audioInput.setInputFiles(Paths.get(filePath));
+
+		// Wait until audio element is attached
+		page.waitForSelector("audio", new Page.WaitForSelectorOptions().setState(WaitForSelectorState.ATTACHED));
+
+		// STEP 1: Click audio player (counts as user gesture)
+		Locator audio = page.locator("audio");
+		audio.scrollIntoViewIfNeeded();
+		audio.click();
+
+		// STEP 2: Wait until audio playback finishes
+		page.evaluate("""
+				    async () => {
+				        const audio = document.querySelector('audio');
+				        audio.muted = false;
+				        await audio.play();
+				        await new Promise(resolve => audio.onended = resolve);
+				    }
+				""");
+
+	}
+	
+	public void clickmcqtwomapping()
+	{
+		page.click(clickmcqtwomapping);
+	}
+	
+	public void clicksessiontopicformcqtwo()
+	{
+		page.click(clicksessiontopicformcqtwo);
 	}
 
 }

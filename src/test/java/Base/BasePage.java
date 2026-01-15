@@ -28,7 +28,7 @@ public class BasePage {
     protected Browser browser;
     protected Page page;
     protected ExtentReports reports;   
-    protected ExtentTest test;
+    protected ExtentTest test; 
 
     @BeforeClass
     public void setUpClass() {
@@ -36,8 +36,12 @@ public class BasePage {
 
         playwright = Playwright.create();
         
-        browser = playwright.chromium().launch(new BrowserType.LaunchOptions().setHeadless(false).setSlowMo(1000));
-       page = browser.newPage();
+        browser = playwright.chromium().launch(new BrowserType.LaunchOptions().setHeadless(false).setSlowMo(1000).setArgs(List.of("--start-maximized")));
+        BrowserContext context = browser.newContext(
+        	    new Browser.NewContextOptions()
+        	        .setViewportSize(null)   
+        	);
+        page = context.newPage(); 
         page.navigate("https://daweb-demo.gcp.digivalitsolutions.com/login");
         page.setDefaultTimeout(40000);
 

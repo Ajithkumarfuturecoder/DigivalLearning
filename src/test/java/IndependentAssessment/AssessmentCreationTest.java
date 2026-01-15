@@ -2,10 +2,8 @@ package IndependentAssessment;
 
 import org.testng.annotations.Test;
 
-
 import IndependentPOM.AssessmentCreationPage;
 import Base.BasePage;
-
 
 public class AssessmentCreationTest extends BasePage {
 
@@ -107,10 +105,10 @@ public class AssessmentCreationTest extends BasePage {
 
 	@Test(priority = 17)
 	public void Mcqmedia() {
-	    AssessmentCreationPage acp = new AssessmentCreationPage(page);
-	    acp.McqMedia();
+		AssessmentCreationPage acp = new AssessmentCreationPage(page);
+		acp.mcqoneimageMedia();
 
-	    // Assertion with retry and timeout (Playwright built-in)
+		// Assertion with retry and timeout (Playwright built-in)
 //	    assertThat(page.locator("text=Invalid URL")).isVisible();
 	}
 
@@ -154,11 +152,87 @@ public class AssessmentCreationTest extends BasePage {
 		acp.clicktaxonomy();
 
 	}
-	
+
 	@Test(priority = 24)
 	public void selecttaxonomyforfirstmcq() {
 		AssessmentCreationPage acp = new AssessmentCreationPage(page);
 		acp.selecttaxonomyforfirstmcq();
 
 	}
+
+	@Test(priority = 25)
+	public void Clickplusicontwo() {
+		AssessmentCreationPage acp = new AssessmentCreationPage(page);
+		acp.Clickplusicontwo();
+	}
+
+	@Test(priority = 26)
+
+	public void McqQuestiontwo() {
+		AssessmentCreationPage acp = new AssessmentCreationPage(page);
+		acp.McqQuestiontwo("Which of the following drugs is classified as an opioid?");
+
+	}
+
+	@Test(priority = 27)
+
+	public void McqQuestiontwochoiceone() {
+		AssessmentCreationPage acp = new AssessmentCreationPage(page);
+		acp.McqQuestiontwochoiceone("Cocaine");
+
+	}
+	
+	@Test(priority = 28)
+
+	public void McqQuestiontwochoicetwo() {
+		AssessmentCreationPage acp = new AssessmentCreationPage(page);
+		acp.McqQuestiontwochoicetwo("Heroin");
+
+	}
+	
+	@Test(priority = 29)
+
+	public void McqQuestiontwochoicethree() {
+		AssessmentCreationPage acp = new AssessmentCreationPage(page);
+		acp.McqQuestiontwochoicethree("LSD");
+
+	}
+	
+	@Test(priority = 30)
+
+	public void McqQuestiontwochoicefour() {
+		AssessmentCreationPage acp = new AssessmentCreationPage(page);
+		acp.McqQuestiontwochoicefour("Cannabis");
+
+	}
+	
+	@Test(priority = 31)
+
+	public void  Mcqquestiontwoselectrightanswer() {
+		AssessmentCreationPage acp = new AssessmentCreationPage(page);
+		acp.Mcqquestiontwoselectrightanswer();
+
+	}
+	
+	@Test(priority = 32)
+	public void mcqtwoaudioMedia() {
+		AssessmentCreationPage acp = new AssessmentCreationPage(page);
+		acp.mcqtwoaudioMedia();
+}
+	
+	@Test(priority = 33)
+	public void clickmcqtwomapping() {
+		AssessmentCreationPage acp = new AssessmentCreationPage(page);
+		acp.clickmcqtwomapping();
+}
+	
+	
+	@Test(priority = 34)
+	public void clicksessiontopicformcqtwo() {
+		AssessmentCreationPage acp = new AssessmentCreationPage(page);
+		acp.clicksessiontopicformcqtwo();
+}
+	
+	
+	
 }
