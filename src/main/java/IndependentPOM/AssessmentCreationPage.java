@@ -42,8 +42,25 @@ public class AssessmentCreationPage {
 	private final String mcqTwoAudioInput = "(//input[@type='file' and contains(@accept,'audio')])[2]";
 	private final String clickmcqtwomapping = "(//div[contains(@style,\"margin-right: 8px;\")])[5]";
 	private final String clicksessiontopicformcqtwo = ("//mat-label[contains(text(),'Subject')]/ancestor::div[contains(@class,'mat-mdc-form-field')]//mat-select");
+	private final String Selectsessiontopicformcqtwo = "//mat-option//span[contains(text(),'Classifications of Drugs of abuse.')]";
+	private final String clickclomappingmcqtwo = "//mat-label[contains(text(),'CLO Mapping')]/ancestor::div[contains(@class,'mat-mdc-form-field')]//mat-select";
+	private final String selectclomappingonemcqtwo = "//mat-option[.//span[contains(normalize-space(),'Define various medical terms')]]//mat-pseudo-checkbox";
+	private final String selectclomappingtwomcqtwo = "//mat-option[.//span[contains(normalize-space(),'Identify various')]]//mat-pseudo-checkbox";
+	private final String clicktaxonomymcqtwo = "//mat-label[contains(text(),'Taxonomy')]/ancestor::div[contains(@class,'mat-mdc-form-field')]//mat-select";
+	private final String selecttaxonomyoneforsecondmcq = "(//mat-pseudo-checkbox[contains(@class,\"mat-pseudo-checkbox mat-mdc-option-pseudo-checkbox mat-pseudo-checkbox-full ng-star-inserted\")])[1]";
+	private final String selecttaxonomytwoforsecondmcq = "(//mat-pseudo-checkbox[contains(@class,\"mat-pseudo-checkbox mat-mdc-option-pseudo-checkbox mat-pseudo-checkbox-full ng-star-inserted\")])[3]";
+	private final String Clickplusiconthree = "(//mat-icon[contains(@class,\"mat-icon notranslate digi-action-icon material-icons mat-ligature-font mat-icon-no-color\")])[1]";
+	private final String McqQuestionthree = "(//div[contains(@class,\"ck-blurred ck ck-content ck-editor__editable ck-rounded-corners ck-editor__editable_inline\")])[1]";
+	private final String McqQuestionthreechoiceone = "(//div[contains(@role,\"textbox\")])[2]";
+	private final String McqQuestionthreechoicetwo = "(//div[contains(@role,\"textbox\")])[3]";
+	private final String McqQuestionthreechoicethree = "(//div[contains(@role,\"textbox\")])[4]";
+	private final String McqQuestionthreechoicefour = "(//div[contains(@role,\"textbox\")])[5]";
+	private final String Mcqquestionthreeselectrightanswer = "(//input[contains(@type,\"radio\")])[3]";
+	private final String mcqThreeVideoInput ="(//input[@type='file' and contains(@accept,'video')])[3]";
+	private final String clickmcqthreemapping = "(//div[contains(@style,\"margin-right: 8px;\")])[9]";
 
-	public AssessmentCreationPage(Page page) {
+	
+ public AssessmentCreationPage(Page page) {
 		this.page = page;
 
 	}
@@ -252,15 +269,121 @@ public class AssessmentCreationPage {
 				""");
 
 	}
-	
-	public void clickmcqtwomapping()
-	{
+
+	public void clickmcqtwomapping() {
 		page.click(clickmcqtwomapping);
 	}
-	
-	public void clicksessiontopicformcqtwo()
-	{
+
+	public void clicksessiontopicformcqtwo() {
 		page.click(clicksessiontopicformcqtwo);
 	}
+
+	public void Selectsessiontopicformcqtwo() {
+		page.click(Selectsessiontopicformcqtwo);
+	}
+
+	public void clickclomappingmcqtwo()
+
+	{
+		page.click(clickclomappingmcqtwo);
+	}
+
+	public void selectclomappingonemcqtwo() {
+		page.click(selectclomappingonemcqtwo);
+	}
+
+	public void selectclomappingtwomcqtwo() {
+		page.click(selectclomappingtwomcqtwo);
+		page.keyboard().press("Escape");
+	}
+
+	public void clicktaxonomymcqtwo() {
+		page.click(clicktaxonomymcqtwo);
+	}
+
+	public void selecttaxonomyoneforsecondmcq() {
+		page.click(selecttaxonomyoneforsecondmcq);
+
+	}
+	
+	public void selecttaxonomytwoforsecondmcq()
+	{
+		page.click(selecttaxonomytwoforsecondmcq);
+		page.keyboard().press("Escape");
+	}
+	
+	public void Clickplusiconthree()
+
+	{
+		page.click(Clickplusiconthree);
+	}
+	
+	public void McqQuestionthree (String mcqquestionthree)
+
+	{
+		page.fill(McqQuestionthree,mcqquestionthree);
+	}
+	
+	public void McqQuestionthreechoiceone(String mcqquestionthreechoiceone) {
+		page.fill(McqQuestionthreechoiceone, mcqquestionthreechoiceone);
+	}
+	
+	public void McqQuestionthreechoicetwo(String mcqquestionthreechoicetwo) {
+		page.fill(McqQuestionthreechoicetwo, mcqquestionthreechoicetwo);
+	}
+	
+	public void McqQuestionthreechoicethree(String mcqquestionthreechoicethree) {
+		page.fill(McqQuestionthreechoicethree, mcqquestionthreechoicethree);
+	}
+	
+	public void  McqQuestionthreechoicefour(String mcqquestionthreechoicefour) {
+		page.fill(McqQuestionthreechoicefour, mcqquestionthreechoicefour);
+	}
+	
+	public void  Mcqquestionthreeselectrightanswer() {
+		page.click(Mcqquestionthreeselectrightanswer);
+	}
+	
+	public void mcqthreeVideoMedia() {
+
+	    String filePath = System.getProperty("user.dir") + "/Media/Video/Videoone.webm";
+
+	    System.out.println("Uploading video: " + filePath);
+
+	    // Upload to hidden input
+	    Locator videoInput = page.locator(mcqThreeVideoInput);
+	    videoInput.setInputFiles(Paths.get(filePath));
+
+	    // Wait until video element is attached
+	    page.waitForSelector(
+	        "video",
+	        new Page.WaitForSelectorOptions()
+	            .setState(WaitForSelectorState.ATTACHED)
+	    );
+
+	    // STEP 1: Click video player (user gesture)
+	    Locator video = page.locator("video");
+	    video.scrollIntoViewIfNeeded();
+	    video.click();
+
+	    // STEP 2: Play video and wait till end
+	    page.evaluate("""
+	        async () => {
+	            const video = document.querySelector('video');
+	            video.muted = false;
+	            await video.play();
+	            await new Promise(resolve => video.onended = resolve);
+	        }
+	    """);
+	}
+
+	
+	public void clickmcqthreemapping()
+	{
+		
+		page.click(clickmcqthreemapping);
+	}
+	
+	
 
 }

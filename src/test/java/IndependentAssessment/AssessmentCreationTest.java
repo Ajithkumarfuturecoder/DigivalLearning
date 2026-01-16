@@ -181,7 +181,7 @@ public class AssessmentCreationTest extends BasePage {
 		acp.McqQuestiontwochoiceone("Cocaine");
 
 	}
-	
+
 	@Test(priority = 28)
 
 	public void McqQuestiontwochoicetwo() {
@@ -189,7 +189,7 @@ public class AssessmentCreationTest extends BasePage {
 		acp.McqQuestiontwochoicetwo("Heroin");
 
 	}
-	
+
 	@Test(priority = 29)
 
 	public void McqQuestiontwochoicethree() {
@@ -197,7 +197,7 @@ public class AssessmentCreationTest extends BasePage {
 		acp.McqQuestiontwochoicethree("LSD");
 
 	}
-	
+
 	@Test(priority = 30)
 
 	public void McqQuestiontwochoicefour() {
@@ -205,34 +205,141 @@ public class AssessmentCreationTest extends BasePage {
 		acp.McqQuestiontwochoicefour("Cannabis");
 
 	}
-	
+
 	@Test(priority = 31)
 
-	public void  Mcqquestiontwoselectrightanswer() {
+	public void Mcqquestiontwoselectrightanswer() {
 		AssessmentCreationPage acp = new AssessmentCreationPage(page);
 		acp.Mcqquestiontwoselectrightanswer();
 
 	}
-	
+
 	@Test(priority = 32)
 	public void mcqtwoaudioMedia() {
 		AssessmentCreationPage acp = new AssessmentCreationPage(page);
 		acp.mcqtwoaudioMedia();
-}
-	
+	}
+
 	@Test(priority = 33)
 	public void clickmcqtwomapping() {
 		AssessmentCreationPage acp = new AssessmentCreationPage(page);
 		acp.clickmcqtwomapping();
-}
-	
-	
+	}
+
 	@Test(priority = 34)
 	public void clicksessiontopicformcqtwo() {
 		AssessmentCreationPage acp = new AssessmentCreationPage(page);
 		acp.clicksessiontopicformcqtwo();
-}
+	}
+
+	@Test(priority = 35)
+	public void Selectsessiontopicformcqtwo() {
+		AssessmentCreationPage acp = new AssessmentCreationPage(page);
+		acp.Selectsessiontopicformcqtwo();
+	}
+
+	@Test(priority = 36)
+	public void clickclomappingmcqtwo() {
+		AssessmentCreationPage acp = new AssessmentCreationPage(page);
+		acp.clickclomappingmcqtwo();
+	}
+
+	@Test(priority = 37)
+	public void selectclomappingonemcqtwo() {
+		AssessmentCreationPage acp = new AssessmentCreationPage(page);
+		acp.selectclomappingonemcqtwo();
+	}
+
+	@Test(priority = 38)
+	public void selectclomappingtwomcqtwo() {
+		AssessmentCreationPage acp = new AssessmentCreationPage(page);
+		acp.selectclomappingtwomcqtwo();
+	}
+
+	@Test(priority = 39)
+	public void clicktaxonomymcqtwo() {
+		AssessmentCreationPage acp = new AssessmentCreationPage(page);
+		acp.clicktaxonomymcqtwo();
+	}
+
+	@Test(priority = 40)
+	public void selecttaxonomyoneforsecondmcq() {
+		AssessmentCreationPage acp = new AssessmentCreationPage(page);
+		acp.selecttaxonomyoneforsecondmcq();
+	}
+
+	@Test(priority = 41)
+
+	public void selecttaxonomytwoforsecondmcq() {
+		AssessmentCreationPage acp = new AssessmentCreationPage(page);
+		acp.selecttaxonomytwoforsecondmcq();
+	}
+
+	@Test(priority = 42)
+
+	public void Clickplusiconthree() {
+		
+		AssessmentCreationPage acp = new AssessmentCreationPage(page);
+		acp.Clickplusiconthree();
+	}
+	
+	@Test(priority = 43)
+
+	public void McqQuestionthree() {
+		AssessmentCreationPage acp = new AssessmentCreationPage(page);
+		acp.McqQuestionthree("Which of the following drugs primarily acts on the central nervous system (CNS) and is classified as a hallucinogen?");
+	}
+	
+	@Test(priority = 44)
+
+	public void McqQuestionthreechoiceone() {
+		AssessmentCreationPage acp = new AssessmentCreationPage(page);
+		acp.McqQuestionthreechoiceone("Morphine");
+	}
+	
+	@Test(priority = 45)
+
+	public void McqQuestionthreechoicetwo() {
+		AssessmentCreationPage acp = new AssessmentCreationPage(page);
+		acp.McqQuestionthreechoicetwo("Cocaine");
+	}
+	
+	@Test(priority = 46)
+
+	public void McqQuestionthreechoicethree () {
+		AssessmentCreationPage acp = new AssessmentCreationPage(page);
+		acp.McqQuestionthreechoicethree("LSD");
+	}
+	
+
+	@Test(priority = 47)
+
+	public void McqQuestionfourchoicefour() {
+		AssessmentCreationPage acp = new AssessmentCreationPage(page);
+		acp. McqQuestionthreechoicefour("Heroin");
+	}
+	
+	@Test(priority = 48)
+
+	public void Mcqquestionthreeselectrightanswer () {
+		AssessmentCreationPage acp = new AssessmentCreationPage(page);
+		acp.Mcqquestionthreeselectrightanswer();
+	}
+	
+	@Test(priority = 49)
+	public void mcqthreeVideoMedia() {
+		AssessmentCreationPage acp = new AssessmentCreationPage(page);
+		acp.mcqthreeVideoMedia();
+	}
+	
+	
+	@Test(priority = 50)
+	public void clickmcqthreemapping() {
+		AssessmentCreationPage acp = new AssessmentCreationPage(page);
+		acp.clickmcqthreemapping();
+	}
 	
 	
 	
+
 }
