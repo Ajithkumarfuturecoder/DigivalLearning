@@ -339,6 +339,65 @@ public class AssessmentCreationTest extends BasePage {
 		acp.clickmcqthreemapping();
 	}
 	
+	@Test(priority = 51)
+	public void clicksessiontopicformcqthree() {
+		AssessmentCreationPage acp = new AssessmentCreationPage(page);
+		acp.clicksessiontopicformcqthree();
+	}
+	
+	@Test(priority = 52)
+	public void  Selectsessiontopicformcqthree() {
+		AssessmentCreationPage acp = new AssessmentCreationPage(page);
+		acp.Selectsessiontopicformcqthree();
+	}
+	
+	@Test(priority = 53)
+	public void  clickclomappingmcqthree() {
+		AssessmentCreationPage acp = new AssessmentCreationPage(page);
+		acp.clickclomappingmcqthree();
+	}
+	
+	@Test(priority = 54)
+	public void  selectclomappingonemcqthree() {
+		AssessmentCreationPage acp = new AssessmentCreationPage(page);
+		acp.selectclomappingonemcqthree();
+	}
+	
+	
+	@Test(priority = 55)
+	public void  selectclomappingtwomcqthree() {
+		AssessmentCreationPage acp = new AssessmentCreationPage(page);
+		acp.selectclomappingtwomcqthree();
+	}
+	
+	@Test(priority = 56)
+	public void  selectclomappingthreemcqthree() {
+		AssessmentCreationPage acp = new AssessmentCreationPage(page);
+		acp.selectclomappingthreemcqthree();
+	}
+	
+	@Test(priority = 57)
+	public void  clicktaxonomymcqthree() {
+		AssessmentCreationPage acp = new AssessmentCreationPage(page);
+		acp.clicktaxonomymcqthree();
+	}
+	
+	@Test(priority = 58)
+	public void  selecttaxonomyoneforthirdmcq() {
+		AssessmentCreationPage acp = new AssessmentCreationPage(page);
+		acp.selecttaxonomyoneforthirdmcq();
+	}
+	@Test(priority = 59)
+	public void selecttaxonomytwoforthirdmcq() {
+		AssessmentCreationPage acp = new AssessmentCreationPage(page);
+		acp.selecttaxonomytwoforthirdmcq();
+	}
+	@Test(priority = 60)
+	public void  selecttaxonomythreeforthirdmcq() {
+		AssessmentCreationPage acp = new AssessmentCreationPage(page);
+		acp.selecttaxonomythreeforthirdmcq();
+	}
+	
 	
 	
 
