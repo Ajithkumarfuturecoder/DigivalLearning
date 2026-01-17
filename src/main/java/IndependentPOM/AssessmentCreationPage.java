@@ -68,6 +68,9 @@ public class AssessmentCreationPage {
 	private final String selecttaxonomyoneforthirdmcq = "(//mat-pseudo-checkbox[contains(@class,\"mat-pseudo-checkbox mat-mdc-option-pseudo-checkbox mat-pseudo-checkbox-full ng-star-inserted\")])[1]";
 	private final String selecttaxonomytwoforthirdmcq = "(//mat-pseudo-checkbox[contains(@class,\"mat-pseudo-checkbox mat-mdc-option-pseudo-checkbox mat-pseudo-checkbox-full ng-star-inserted\")])[2]";
 	private final String selecttaxonomythreeforthirdmcq = "(//mat-pseudo-checkbox[contains(@class,\"mat-pseudo-checkbox mat-mdc-option-pseudo-checkbox mat-pseudo-checkbox-full ng-star-inserted\")])[3]";
+	private final String Clickplusiconfour = "(//mat-icon[contains(@class,\"mat-icon notranslate digi-action-icon material-icons mat-ligature-font mat-icon-no-color\")])[1]";
+	private final String Clickitemtypeone= "//mat-select//span[contains(normalize-space(),'MCQ')]/ancestor::div[contains(@class,'mat-mdc-select-value')]";
+	private final String selectitemtypetwo= "//mat-option//span[contains(normalize-space(),'TF')]";
 
 	public AssessmentCreationPage(Page page) {
 		this.page = page;
@@ -411,25 +414,40 @@ public class AssessmentCreationPage {
 		page.keyboard().press("Escape");
 
 	}
-	
-	public void clicktaxonomymcqthree()
-	{
+
+	public void clicktaxonomymcqthree() {
 		page.click(clicktaxonomymcqthree);
 	}
-	
-	public void selecttaxonomyoneforthirdmcq()
-	{
+
+	public void selecttaxonomyoneforthirdmcq() {
 		page.click(selecttaxonomyoneforthirdmcq);
 	}
-	public void selecttaxonomytwoforthirdmcq()
-	{
+
+	public void selecttaxonomytwoforthirdmcq() {
 		page.click(selecttaxonomytwoforthirdmcq);
 	}
-	public void selecttaxonomythreeforthirdmcq()
-	{
+
+	public void selecttaxonomythreeforthirdmcq() {
 		page.click(selecttaxonomythreeforthirdmcq);
 		page.keyboard().press("Escape");
 
+	}
+	
+	
+	public void Clickplusiconfour()
+
+	{
+		page.click(Clickplusiconfour);
+	}
+	
+	public void Clickitemtypeone()
+	{
+		page.click(Clickitemtypeone);
+	}
+	
+	public void selectitemtypetwo()
+	{
+		page.click(selectitemtypetwo);
 	}
 
 }

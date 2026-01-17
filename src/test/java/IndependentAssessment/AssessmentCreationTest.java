@@ -278,127 +278,142 @@ public class AssessmentCreationTest extends BasePage {
 	@Test(priority = 42)
 
 	public void Clickplusiconthree() {
-		
+
 		AssessmentCreationPage acp = new AssessmentCreationPage(page);
 		acp.Clickplusiconthree();
 	}
-	
+
 	@Test(priority = 43)
 
 	public void McqQuestionthree() {
 		AssessmentCreationPage acp = new AssessmentCreationPage(page);
-		acp.McqQuestionthree("Which of the following drugs primarily acts on the central nervous system (CNS) and is classified as a hallucinogen?");
+		acp.McqQuestionthree(
+				"Which of the following drugs primarily acts on the central nervous system (CNS) and is classified as a hallucinogen?");
 	}
-	
+
 	@Test(priority = 44)
 
 	public void McqQuestionthreechoiceone() {
 		AssessmentCreationPage acp = new AssessmentCreationPage(page);
 		acp.McqQuestionthreechoiceone("Morphine");
 	}
-	
+
 	@Test(priority = 45)
 
 	public void McqQuestionthreechoicetwo() {
 		AssessmentCreationPage acp = new AssessmentCreationPage(page);
 		acp.McqQuestionthreechoicetwo("Cocaine");
 	}
-	
+
 	@Test(priority = 46)
 
-	public void McqQuestionthreechoicethree () {
+	public void McqQuestionthreechoicethree() {
 		AssessmentCreationPage acp = new AssessmentCreationPage(page);
 		acp.McqQuestionthreechoicethree("LSD");
 	}
-	
 
 	@Test(priority = 47)
 
 	public void McqQuestionfourchoicefour() {
 		AssessmentCreationPage acp = new AssessmentCreationPage(page);
-		acp. McqQuestionthreechoicefour("Heroin");
+		acp.McqQuestionthreechoicefour("Heroin");
 	}
-	
+
 	@Test(priority = 48)
 
-	public void Mcqquestionthreeselectrightanswer () {
+	public void Mcqquestionthreeselectrightanswer() {
 		AssessmentCreationPage acp = new AssessmentCreationPage(page);
 		acp.Mcqquestionthreeselectrightanswer();
 	}
-	
+
 	@Test(priority = 49)
 	public void mcqthreeVideoMedia() {
 		AssessmentCreationPage acp = new AssessmentCreationPage(page);
 		acp.mcqthreeVideoMedia();
 	}
-	
-	
+
 	@Test(priority = 50)
 	public void clickmcqthreemapping() {
 		AssessmentCreationPage acp = new AssessmentCreationPage(page);
 		acp.clickmcqthreemapping();
 	}
-	
+
 	@Test(priority = 51)
 	public void clicksessiontopicformcqthree() {
 		AssessmentCreationPage acp = new AssessmentCreationPage(page);
 		acp.clicksessiontopicformcqthree();
 	}
-	
+
 	@Test(priority = 52)
-	public void  Selectsessiontopicformcqthree() {
+	public void Selectsessiontopicformcqthree() {
 		AssessmentCreationPage acp = new AssessmentCreationPage(page);
 		acp.Selectsessiontopicformcqthree();
 	}
-	
+
 	@Test(priority = 53)
-	public void  clickclomappingmcqthree() {
+	public void clickclomappingmcqthree() {
 		AssessmentCreationPage acp = new AssessmentCreationPage(page);
 		acp.clickclomappingmcqthree();
 	}
-	
+
 	@Test(priority = 54)
-	public void  selectclomappingonemcqthree() {
+	public void selectclomappingonemcqthree() {
 		AssessmentCreationPage acp = new AssessmentCreationPage(page);
 		acp.selectclomappingonemcqthree();
 	}
-	
-	
+
 	@Test(priority = 55)
-	public void  selectclomappingtwomcqthree() {
+	public void selectclomappingtwomcqthree() {
 		AssessmentCreationPage acp = new AssessmentCreationPage(page);
 		acp.selectclomappingtwomcqthree();
 	}
-	
+
 	@Test(priority = 56)
-	public void  selectclomappingthreemcqthree() {
+	public void selectclomappingthreemcqthree() {
 		AssessmentCreationPage acp = new AssessmentCreationPage(page);
 		acp.selectclomappingthreemcqthree();
 	}
-	
+
 	@Test(priority = 57)
-	public void  clicktaxonomymcqthree() {
+	public void clicktaxonomymcqthree() {
 		AssessmentCreationPage acp = new AssessmentCreationPage(page);
 		acp.clicktaxonomymcqthree();
 	}
-	
+
 	@Test(priority = 58)
-	public void  selecttaxonomyoneforthirdmcq() {
+	public void selecttaxonomyoneforthirdmcq() {
 		AssessmentCreationPage acp = new AssessmentCreationPage(page);
 		acp.selecttaxonomyoneforthirdmcq();
 	}
+
 	@Test(priority = 59)
 	public void selecttaxonomytwoforthirdmcq() {
 		AssessmentCreationPage acp = new AssessmentCreationPage(page);
 		acp.selecttaxonomytwoforthirdmcq();
 	}
+
 	@Test(priority = 60)
-	public void  selecttaxonomythreeforthirdmcq() {
+	public void selecttaxonomythreeforthirdmcq() {
 		AssessmentCreationPage acp = new AssessmentCreationPage(page);
 		acp.selecttaxonomythreeforthirdmcq();
 	}
 	
+	@Test(priority = 61)
+	public void Clickplusiconfour() {
+		AssessmentCreationPage acp = new AssessmentCreationPage(page);
+		acp.Clickplusiconfour();
+	}
 	
+	@Test(priority = 62)
+	public void Clickitemtypeone() {
+		AssessmentCreationPage acp = new AssessmentCreationPage(page);
+		acp.Clickitemtypeone();
+	}
 	
+	@Test(priority = 63)
+	public void selectitemtypetwo() {
+		AssessmentCreationPage acp = new AssessmentCreationPage(page);
+		acp.selectitemtypetwo();
+	}
 
 }
